@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -21,11 +22,11 @@ import java.util.ArrayList;
 public class AreaDAO implements AreaInterface{
 
     @Override
-    public ArrayList<AreaModel> getAllArea() {
-        ArrayList<AreaModel> listArea = new ArrayList<>();
+    public List<AreaModel> getAllArea() {
+        List<AreaModel> listArea = new ArrayList<>();
         try {
             Connection connection = ConnectDB.getConnection();
-            PreparedStatement ps = connection.prepareCall("SELECT * FROM tram");
+            PreparedStatement ps = connection.prepareStatement("SELECT * FROM tram");
             ResultSet rs =ps.executeQuery();
             while (rs.next()) {
                 AreaModel areaModel = new AreaModel();

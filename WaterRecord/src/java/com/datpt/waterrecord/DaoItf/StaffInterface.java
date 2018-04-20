@@ -5,13 +5,14 @@
  */
 package com.datpt.waterrecord.DaoItf;
 
-import com.datpt.waterrecord.model.AreaModel;
+import com.datpt.waterrecord.model.StaffModel;
 import java.util.List;
 
 /**
  *
  * @author DatPT
  */
-public interface AreaInterface {
-    public List<AreaModel> getAllArea();
+public interface StaffInterface {
+    public List<StaffModel> getListStaff();
+    public boolean InsertStaff(StaffModel staffModel);
 }

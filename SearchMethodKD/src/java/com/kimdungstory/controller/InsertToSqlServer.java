@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.datpt.waterrecord.DaoItf;
+package com.kimdungstory.controller;
 
-import com.datpt.waterrecord.model.AreaModel;
+import com.kimdungstory.DAO.ChapterDAO;
+import com.kimdungstory.DAO.TestSQL;
+import com.kimdungstory.model.ChaptersModel;
 import java.util.List;
 
 /**
  *
  * @author DatPT
  */
-public interface AreaInterface {
-    public List<AreaModel> getAllArea();
+public class InsertToSqlServer {
+
 }

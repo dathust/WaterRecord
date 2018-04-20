@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.datpt.waterrecord.DaoItf;
-
-import com.datpt.waterrecord.model.AreaModel;
-import java.util.List;
+package com.test;
 
 /**
  *
  * @author DatPT
  */
-public interface AreaInterface {
-    public List<AreaModel> getAllArea();
+public class NewClass {
+
 }
