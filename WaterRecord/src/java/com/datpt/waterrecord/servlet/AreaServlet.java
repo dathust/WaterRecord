@@ -9,6 +9,8 @@ import com.datpt.waterrecord.Dao.AreaDAO;
 import com.datpt.waterrecord.Dao.CustomerDAO;
 import com.datpt.waterrecord.DaoItf.AreaInterface;
 import com.datpt.waterrecord.DaoItf.CustomerInterface;
+import com.datpt.waterrecord.controller.CustomerController;
+import com.datpt.waterrecord.controller.IndicationController;
 import com.datpt.waterrecord.controller.StaffController;
 import com.datpt.waterrecord.model.AreaModel;
 import com.datpt.waterrecord.model.CustomerModel;
@@ -33,6 +35,7 @@ import org.json.simple.JSONArray;
 public class AreaServlet extends HttpServlet {
 
     StaffController staffController = new StaffController();
+    IndicationController indicationController = new IndicationController();
     AreaInterface area = new AreaDAO();
     Gson gson = new Gson();
 
@@ -79,7 +82,7 @@ public class AreaServlet extends HttpServlet {
         // 
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-        
+
         String ham = request.getParameter("ham");
 
         switch (ham) {
@@ -115,16 +118,24 @@ public class AreaServlet extends HttpServlet {
                 processRequest(request, response, "Customer", gson.toJson(listCustomer).toString());
                 break;
             case "LayKhachHangTheoTram":
-                CustomerInterface customerArea = new CustomerDAO();
+                CustomerController customerArea = new CustomerController();
                 int maTram = Integer.parseInt(request.getParameter("maTram"));
                 List<CustomerModel> listCustomerArea = customerArea.getListCustomerArea(maTram);
-                processRequest(request, response,"Customer",gson.toJson(listCustomerArea).toString());
+                processRequest(request, response, "Customer", gson.toJson(listCustomerArea).toString());
                 break;
             case "LayKhachHang":
-                CustomerInterface customer = new CustomerDAO();
+                CustomerController customer = new CustomerController();
                 int maKhachHang = Integer.parseInt(request.getParameter("maKhachHang"));
                 CustomerModel customerModel = customer.getCustomer(maKhachHang);
-                processRequest(request, response,"Customer",gson.toJson(customerModel).toString());
+                processRequest(request, response, "Customer", gson.toJson(customerModel).toString());
+                break;
+            case "ThemSoGhiDongHo":
+                int maKhachHang1 = Integer.parseInt(request.getParameter("maKhachHang"));
+                int maNhanVien = Integer.parseInt(request.getParameter("maNhanVien"));
+                int chiSo = Integer.parseInt(request.getParameter("chiSo"));
+                String ghiChu = request.getParameter("ghiChu");
+                Boolean check1 = indicationController.InsertIndication(maKhachHang1, maNhanVien, chiSo, null, ghiChu);
+                processRequest(request, response, "ketqua", check1.toString());
                 break;
         }
     }
@@ -178,28 +189,25 @@ public class AreaServlet extends HttpServlet {
                 processRequest(request, response, "Customer", gson.toJson(listCustomer).toString());
                 break;
             case "LayKhachHangTheoTram":
-                CustomerInterface customerArea = new CustomerDAO();
+                CustomerController customerArea = new CustomerController();
                 int maTram = Integer.parseInt(request.getParameter("maTram"));
                 List<CustomerModel> listCustomerArea = customerArea.getListCustomerArea(maTram);
-                processRequest(request, response,"Customer",gson.toJson(listCustomerArea).toString());
+                processRequest(request, response, "Customer", gson.toJson(listCustomerArea).toString());
                 break;
             case "LayKhachHang":
-                CustomerInterface customer = new CustomerDAO();
+                CustomerController customer = new CustomerController();
                 int maKhachHang = Integer.parseInt(request.getParameter("maKhachHang"));
                 CustomerModel customerModel = customer.getCustomer(maKhachHang);
-                processRequest(request, response,"Customer",gson.toJson(customerModel).toString());
+                processRequest(request, response, "Customer", gson.toJson(customerModel).toString());
+                break;
+            case "ThemSoGhiDongHo":
+                int maKhachHang1 = Integer.parseInt(request.getParameter("maKhachHang"));
+                int maNhanVien = Integer.parseInt(request.getParameter("maNhanVien"));
+                int chiSo = Integer.parseInt(request.getParameter("chiSo"));
+                String ghiChu = request.getParameter("ghiChu");
+                Boolean check1 = indicationController.InsertIndication(maKhachHang1, maNhanVien, chiSo, null, ghiChu);
+                processRequest(request, response, "ketqua", check1.toString());
                 break;
         }
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

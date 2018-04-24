@@ -46,7 +46,8 @@ public class CustomerDAO implements CustomerInterface {
                 customerModel.setTongChiSo(rs.getInt(10));
                 customerModel.setToaDoX(rs.getFloat(11));
                 customerModel.setToaDoY(rs.getFloat(12));
-                customerModel.setGhiChu(rs.getString(13));
+                customerModel.setTrangThai(rs.getInt(13));
+                customerModel.setGhiChu(rs.getString(14));
                 listCustomer.add(customerModel);
             }
             return listCustomer;
@@ -79,7 +80,8 @@ public class CustomerDAO implements CustomerInterface {
                 customerModel.setTongChiSo(rs.getInt(10));
                 customerModel.setToaDoX(rs.getFloat(11));
                 customerModel.setToaDoY(rs.getFloat(12));
-                customerModel.setGhiChu(rs.getString(13));
+                customerModel.setTrangThai(rs.getInt(13));
+                customerModel.setGhiChu(rs.getString(14));
                 listCustomer.add(customerModel);
             }
             return listCustomer;
@@ -113,7 +115,8 @@ public class CustomerDAO implements CustomerInterface {
                 customerModel.setTongChiSo(rs.getInt(10));
                 customerModel.setToaDoX(rs.getFloat(11));
                 customerModel.setToaDoY(rs.getFloat(12));
-                customerModel.setGhiChu(rs.getString(13));
+                customerModel.setTrangThai(rs.getInt(13));
+                customerModel.setGhiChu(rs.getString(14));
 
             }
         } catch (SQLException ex) {
@@ -122,5 +125,24 @@ public class CustomerDAO implements CustomerInterface {
             ConnectDB.closeConnection();
         }
         return customerModel;
+    }
+
+    @Override
+    public boolean UpdateCustomerStatus(int trangThai, int maKhachHang) {
+        try {
+            Connection connection = ConnectDB.getConnection();
+            PreparedStatement ps = connection.prepareStatement("UPDATE khachhang SET TRANG_THAI=? WHERE MA_KH=?");
+            ps.setInt(1, trangThai);
+            ps.setInt(2, maKhachHang);
+        int result = ps.executeUpdate();
+            return result == 1;
+        } catch (SQLException ex) {
+            Logger.getLogger(IndicationDAO.class.getName()).log(Level.SEVERE, null, ex);
+
+        } finally {
+            ConnectDB.closeConnection();
+        }
+        return false;
+        
     }
 }

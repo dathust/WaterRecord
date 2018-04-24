@@ -22,12 +22,12 @@ public class CustomerModel {
     private int tongChiSo;
     private float toaDoX;
     private float toaDoY;
+    private int trangThai;
     private String ghiChu;
+    private int chiSoThangTruoc;
+    private int chiSoThangNay;
 
-    public CustomerModel() {
-    }
-
-    public CustomerModel(int maKhachHang, String tenKhachHang, String tenKhac, String diaChi, String dienThoai, String maSoThue, int maSoDongHo, int maBangGia, int maTram, int tongChiSo, float toaDoX, float toaDoY, String ghiChu) {
+    public CustomerModel(int maKhachHang, String tenKhachHang, String tenKhac, String diaChi, String dienThoai, String maSoThue, int maSoDongHo, int maBangGia, int maTram, int tongChiSo, float toaDoX, float toaDoY, int trangThai, String ghiChu, int chiSoThangTruoc, int chiSoThangNay) {
         this.maKhachHang = maKhachHang;
         this.tenKhachHang = tenKhachHang;
         this.tenKhac = tenKhac;
@@ -40,7 +40,13 @@ public class CustomerModel {
         this.tongChiSo = tongChiSo;
         this.toaDoX = toaDoX;
         this.toaDoY = toaDoY;
+        this.trangThai = trangThai;
         this.ghiChu = ghiChu;
+        this.chiSoThangTruoc = chiSoThangTruoc;
+        this.chiSoThangNay = chiSoThangNay;
+    }
+
+    public CustomerModel() {
     }
 
     public String getTenKhac() {
@@ -141,6 +147,14 @@ public class CustomerModel {
         this.toaDoY = toaDoY;
     }
 
+    public int getTrangThai() {
+        return trangThai;
+    }
+
+    public void setTrangThai(int trangThai) {
+        this.trangThai = trangThai;
+    }
+
     public String getGhiChu() {
         return ghiChu;
     }
@@ -148,6 +162,23 @@ public class CustomerModel {
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
+    
+     public int getChiSoThangTruoc() {
+        return chiSoThangTruoc;
+    }
+
+    public void setChiSoThangTruoc(int chiSoThangTruoc) {
+        this.chiSoThangTruoc = chiSoThangTruoc;
+    }
+
+    public int getChiSoThangNay() {
+        return chiSoThangNay;
+    }
+
+    public void setChiSoThangNay(int chiSoThangNay) {
+        this.chiSoThangNay = chiSoThangNay;
+    }
+
     
     
 }

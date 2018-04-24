@@ -16,4 +16,5 @@ public interface CustomerInterface {
     public List<CustomerModel> getListCustomerArea(int maTram);
     public List<CustomerModel> getListCustomer();
     public CustomerModel getCustomer(int maKhachHang);
+    public boolean UpdateCustomerStatus(int trangThai, int maKhachHang);
 }
