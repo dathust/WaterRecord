@@ -20,14 +20,16 @@ public class CustomerModel {
     private int maBangGia;
     private int maTram;
     private int tongChiSo;
-    private float toaDoX;
-    private float toaDoY;
+    private double toaDoX1;
+    private double toaDoX2;
+    private double toaDoY1;
+    private double toaDoY2;
     private int trangThai;
     private String ghiChu;
     private int chiSoThangTruoc;
     private int chiSoThangNay;
 
-    public CustomerModel(int maKhachHang, String tenKhachHang, String tenKhac, String diaChi, String dienThoai, String maSoThue, int maSoDongHo, int maBangGia, int maTram, int tongChiSo, float toaDoX, float toaDoY, int trangThai, String ghiChu, int chiSoThangTruoc, int chiSoThangNay) {
+    public CustomerModel(int maKhachHang, String tenKhachHang, String tenKhac, String diaChi, String dienThoai, String maSoThue, int maSoDongHo, int maBangGia, int maTram, int tongChiSo, double toaDoX1, double toaDoX2, double toaDoY1, double toaDoY2, int trangThai, String ghiChu, int chiSoThangTruoc, int chiSoThangNay) {
         this.maKhachHang = maKhachHang;
         this.tenKhachHang = tenKhachHang;
         this.tenKhac = tenKhac;
@@ -38,14 +40,18 @@ public class CustomerModel {
         this.maBangGia = maBangGia;
         this.maTram = maTram;
         this.tongChiSo = tongChiSo;
-        this.toaDoX = toaDoX;
-        this.toaDoY = toaDoY;
+        this.toaDoX1 = toaDoX1;
+        this.toaDoX2 = toaDoX2;
+        this.toaDoY1 = toaDoY1;
+        this.toaDoY2 = toaDoY2;
         this.trangThai = trangThai;
         this.ghiChu = ghiChu;
         this.chiSoThangTruoc = chiSoThangTruoc;
         this.chiSoThangNay = chiSoThangNay;
     }
 
+
+    
     public CustomerModel() {
     }
 
@@ -131,20 +137,36 @@ public class CustomerModel {
         this.tongChiSo = tongChiSo;
     }
 
-    public float getToaDoX() {
-        return toaDoX;
+    public double getToaDoX1() {
+        return toaDoX1;
     }
 
-    public void setToaDoX(float toaDoX) {
-        this.toaDoX = toaDoX;
+    public void setToaDoX1(double toaDoX1) {
+        this.toaDoX1 = toaDoX1;
     }
 
-    public float getToaDoY() {
-        return toaDoY;
+    public double getToaDoX2() {
+        return toaDoX2;
     }
 
-    public void setToaDoY(float toaDoY) {
-        this.toaDoY = toaDoY;
+    public void setToaDoX2(double toaDoX2) {
+        this.toaDoX2 = toaDoX2;
+    }
+
+    public double getToaDoY1() {
+        return toaDoY1;
+    }
+
+    public void setToaDoY1(double toaDoY1) {
+        this.toaDoY1 = toaDoY1;
+    }
+
+    public double getToaDoY2() {
+        return toaDoY2;
+    }
+
+    public void setToaDoY2(double toaDoY2) {
+        this.toaDoY2 = toaDoY2;
     }
 
     public int getTrangThai() {
